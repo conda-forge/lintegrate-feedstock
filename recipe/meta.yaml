@@ -6,13 +6,13 @@ package:
   version: {{ version }}
 
 source:
-  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  url: https://test-files.pythonhosted.org/packages/e7/eb/67e627eeaf05d5496859773e6799dd36d4a42a2837589e0abf2d394836ba/lintegrate-0.1.4.tar.gz
-  sha256: af1473d0110c16b0e03a1fffe14184d54c0794213635e689e96b512f02ad38a9
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: c8e65589cf0f98c0a9cc28e5222026c5cfc11cb24d3867342c0fb9d1ac0a9a1a
 
 build:
   number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
+  skip: True  # [py27]
 
 requirements:
   build:
