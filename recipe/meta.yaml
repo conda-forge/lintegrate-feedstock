@@ -6,8 +6,9 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: ef8aa9da61947c616a4ac2726011ae2a3c04e6db9623d8e71fb3d686c88c76a0
+  #url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://test-files.pythonhosted.org/packages/0a/6f/41e06cd412c6fcdac05604c1ef83213e9a299ce76af0c26657e889cc66d6/lintegrate-0.1.2.tar.gz
+  sha256: 122486122b7b81475be5c3c6680aadbf23e35d0497ce16a251d9116cfcc0a09c
 
 build:
   number: 0
