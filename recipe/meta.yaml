@@ -19,12 +19,12 @@ requirements:
     - {{ compiler('c') }}
   host:
     - gsl
-    - numpy
+    - numpy 1.19.4
     - python
     - pip
   run:
     - gsl
-    - {{ pin_compatible('numpy') }}
+    - numpy 1.19.4
     - python
 
 test:
