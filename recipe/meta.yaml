@@ -10,7 +10,7 @@ source:
   sha256: 3e3aef4a66eaa71828269bc4b58a932ce964fcfada4c7d3c3831ea7ee7609f2f
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py27]
 
@@ -30,6 +30,10 @@ requirements:
 test:
   imports:
     - lintegrate
+  requires:
+    - pytest
+  commands:
+    - pytest
 
 about:
   home: http://github.com/mattpitkin/lintegrate
