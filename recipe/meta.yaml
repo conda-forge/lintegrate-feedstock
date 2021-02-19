@@ -24,7 +24,7 @@ requirements:
     - pip
   run:
     - gsl
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - python
 
 test:
