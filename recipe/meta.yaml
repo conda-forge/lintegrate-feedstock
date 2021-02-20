@@ -1,13 +1,13 @@
 {% set name = "lintegrate" %}
-{% set version = "0.1.5" %}
+{% set version = "0.1.6" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 3e3aef4a66eaa71828269bc4b58a932ce964fcfada4c7d3c3831ea7ee7609f2f
+  git_rev: v{{ version }}
+  git_url: https://github.com/mattpitkin/lintegrate.git
 
 build:
   number: 0
@@ -18,18 +18,27 @@ requirements:
   build:
     - {{ compiler('c') }}
   host:
+    - cython
     - gsl
     - numpy
     - python
     - pip
+    - setuptools
+    - setuptools_scm
   run:
     - gsl
-    - numpy
+    - {{ pin_compatible('numpy') }}
     - python
 
 test:
   imports:
     - lintegrate
+  requires:
+    - pytest
+  source_files:
+    - test
+  commands:
+    - pytest test
 
 about:
   home: http://github.com/mattpitkin/lintegrate
