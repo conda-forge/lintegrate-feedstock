@@ -35,8 +35,10 @@ test:
     - lintegrate
   requires:
     - pytest
+  source_files:
+    - test
   commands:
-    - pytest
+    - pytest test
 
 about:
   home: http://github.com/mattpitkin/lintegrate
