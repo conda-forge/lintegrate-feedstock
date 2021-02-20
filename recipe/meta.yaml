@@ -27,7 +27,7 @@ requirements:
     - setuptools_scm
   run:
     - gsl
-    - {{ pin_compatible('numpy' }}
+    - {{ pin_compatible('numpy') }}
     - python
 
 test:
