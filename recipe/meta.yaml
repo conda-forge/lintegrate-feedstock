@@ -6,11 +6,11 @@ package:
   version: {{ version }}
 
 source:
-  git_rev: v{{ version }}
-  git_url: https://github.com/mattpitkin/lintegrate.git
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 21f6a0bfa03e76d0d224e27709f326542394b686814de80b927885c45d56f810
 
 build:
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [py27]
 
