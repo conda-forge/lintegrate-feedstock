@@ -46,7 +46,7 @@ test:
     - test
   commands:
     - python -m pip check
-    - python -m pytest test
+    - python -m pytest test -v -ra
 
 about:
   home: http://github.com/mattpitkin/lintegrate
