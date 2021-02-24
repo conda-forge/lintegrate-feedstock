@@ -9,6 +9,8 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 21f6a0bfa03e76d0d224e27709f326542394b686814de80b927885c45d56f810
   patches:
+    # don't link against gslcblas
+    - no-gslcblas.patch
     # we don't really need cython at runtime
     - requirements-no-cython.patch
 
