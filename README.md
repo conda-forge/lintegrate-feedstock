@@ -9,7 +9,7 @@ Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/lintegrate-feed
 
 Summary: Python functions implementing numerical integration of functions in log-space.
 
-Development: https://github.com/mattpitkin/lintegrate
+Development: https://github.com/mattpitkin/lintegrate.git
 
 lintegrate provides Python functions for numerical integration of functions
 in log-space. This is useful for functions that have a very large dynamic
