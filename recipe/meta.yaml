@@ -8,9 +8,9 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 077e6b44a0d183d02f6f0f20cfc2540b2558b1f2a5cdfcfe26776cae99bf0e1c
-patches:
-  # we don't really need cython at runtime
-  - requirements-no-cython.patch
+  patches:
+    # we don't really need cython at runtime
+    - requirements-no-cython.patch
 
 build:
   ignore_run_exports:
