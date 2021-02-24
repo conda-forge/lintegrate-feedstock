@@ -1,5 +1,5 @@
 {% set name = "lintegrate" %}
-{% set version = "0.1.6" %}
+{% set version = "0.1.7" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,17 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 21f6a0bfa03e76d0d224e27709f326542394b686814de80b927885c45d56f810
+  sha256: 077e6b44a0d183d02f6f0f20cfc2540b2558b1f2a5cdfcfe26776cae99bf0e1c
   patches:
-    # don't link against gslcblas
-    - no-gslcblas.patch
     # we don't really need cython at runtime
     - requirements-no-cython.patch
+    # fixes to enable Windows build
+    - windows.patch
 
 build:
   ignore_run_exports:
     - vs2015_runtime  # [win]
-  number: 2
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
