@@ -1,5 +1,5 @@
 {% set name = "lintegrate" %}
-{% set version = "0.1.7" %}
+{% set version = "0.1.8" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,15 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 077e6b44a0d183d02f6f0f20cfc2540b2558b1f2a5cdfcfe26776cae99bf0e1c
+  sha256: 90a240f103f369b176891aa308ee107a4574a48119e867c1057d8cdf964f535c
   patches:
     # we don't really need cython at runtime
     - requirements-no-cython.patch
-    # fixes to enable Windows build
-    - windows.patch
 
 build:
   ignore_run_exports:
     - vs2015_runtime  # [win]
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
