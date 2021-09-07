@@ -15,8 +15,8 @@ source:
 build:
   ignore_run_exports:
     - vs2015_runtime  # [win]
-  number: 1
-  script: {{ PYTHON }} -m pip install . -vv
+  number: 2
+  script: rm lintegrate/lintegrate.c; {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
