@@ -15,7 +15,7 @@ source:
 build:
   ignore_run_exports:
     - vs2015_runtime  # [win]
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
