@@ -1,5 +1,5 @@
 {% set name = "lintegrate" %}
-{% set version = "0.1.8" %}
+{% set version = "0.1.9" %}
 
 package:
   name: {{ name|lower }}
@@ -7,17 +7,13 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 90a240f103f369b176891aa308ee107a4574a48119e867c1057d8cdf964f535c
-  patches:
-    # we don't really need cython at runtime
-    - requirements-no-cython.patch
+  sha256: bdd26988d1a49f7d46d1403fe4d337763993bb601272941bc869005cb326001b
 
 build:
   ignore_run_exports:
     - vs2015_runtime  # [win]
-  number: 3
-  script: rm lintegrate/lintegrate.c && {{ PYTHON }} -m pip install . -vv  # [not win]
-  script: del lintegrate\lintegrate.c && {{ PYTHON }} -m pip install . -vv  # [win]
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
@@ -36,15 +32,15 @@ requirements:
     - python
 
 test:
-  imports:
-    - lintegrate
   requires:
     - pip
     - pytest
   source_files:
     - test
   commands:
+    # check requirements
     - python -m pip check
+    # run unit tests
     - python -m pytest test -v -ra
 
 about:
