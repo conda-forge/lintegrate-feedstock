@@ -1,5 +1,5 @@
 {% set name = "lintegrate" %}
-{% set version = "0.1.9" %}
+{% set version = "0.1.10" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: bdd26988d1a49f7d46d1403fe4d337763993bb601272941bc869005cb326001b
+  sha256: 7e553dfbc2531cc31c7cfaf1f69dea11a5075428603657c9e855559ec9c0f5e1
 
 build:
   ignore_run_exports:
