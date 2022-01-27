@@ -43,8 +43,6 @@ test:
     - python -m pip check
     # run unit tests
     - python -m pytest test -v -ra
-  downstreams:
-    - cwinpy  # [python_impl == 'cpython' and not win and py<310]
 
 about:
   home: http://github.com/mattpitkin/lintegrate
