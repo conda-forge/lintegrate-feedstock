@@ -12,7 +12,7 @@ source:
 build:
   ignore_run_exports:
     - vs2015_runtime  # [win]
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
@@ -21,7 +21,8 @@ requirements:
   host:
     - cython
     - gsl
-    - numpy
+    - numpy 1.20  # [py<310]
+    - numpy  # [py>=310]
     - python
     - pip
     - setuptools
@@ -30,6 +31,8 @@ requirements:
     - gsl
     - {{ pin_compatible('numpy') }}
     - python
+  downstreams:
+￼   - cwinpy  # [python_impl == 'cpython' and not win and py<310]
 
 test:
   requires:
