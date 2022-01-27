@@ -31,8 +31,6 @@ requirements:
     - gsl
     - {{ pin_compatible('numpy') }}
     - python
-  downstreams:
-￼   - cwinpy  # [python_impl == 'cpython' and not win and py<310]
 
 test:
   requires:
