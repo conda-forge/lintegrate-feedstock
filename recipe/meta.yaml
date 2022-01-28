@@ -21,7 +21,7 @@ requirements:
   host:
     - cython
     - gsl
-    - numpy x.x
+    - numpy
     - python
     - pip
     - setuptools
