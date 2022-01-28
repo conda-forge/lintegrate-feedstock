@@ -1,5 +1,5 @@
 {% set name = "lintegrate" %}
-{% set version = "0.1.10" %}
+{% set version = "0.1.11" %}
 
 package:
   name: {{ name|lower }}
@@ -7,14 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 7e553dfbc2531cc31c7cfaf1f69dea11a5075428603657c9e855559ec9c0f5e1
-  patches:
-    - condafix.patch
+  sha256: ba8393a5491c01835519b8f87e96ebc8ba6b0a0b3d071db8171d8ae456b2d5d4
 
 build:
   ignore_run_exports:
     - vs2015_runtime  # [win]
-  number: 1
+  number: 0
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
