@@ -1,5 +1,5 @@
 {% set name = "lintegrate" %}
-{% set version = "0.1.15" %}
+{% set version = "0.1.16" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 82d6da1daf57a4b14bc6a0743dc9cb44cb09c69b10b93a088ad0a853a5bc3e4c
+  sha256: 3f2569ffe4364a86495baad870300723af73bc8c6373443a6c23e8e410aac848
   patches:
     - requirements.patch
 
