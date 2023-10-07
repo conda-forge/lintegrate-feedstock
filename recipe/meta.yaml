@@ -9,7 +9,9 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 3f2569ffe4364a86495baad870300723af73bc8c6373443a6c23e8e410aac848
   patches:
-    - requirements.patch
+    # see https://github.com/duncanmmacleod/lintegrate/commits/conda-patches
+    - 0001-pyproject.toml-remove-oldest-known-numpy.patch
+    - 0002-setup.py-use-gsl-config-libs-without-cblas.patch
 
 build:
   error_overdepending: true
