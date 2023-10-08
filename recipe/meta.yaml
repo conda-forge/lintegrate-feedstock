@@ -18,6 +18,9 @@ build:
   error_overlinking: true
   ignore_run_exports:
     - numpy
+    - pypy3.9  # [not win]
+    - ucrt  # [win]
+    - vc14_runtime  # [win]
     - vs2015_runtime  # [win]
   number: 3
   script: {{ PYTHON }} -m pip install . -vv
