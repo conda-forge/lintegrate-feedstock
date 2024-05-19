@@ -22,12 +22,13 @@ build:
     - ucrt  # [win]
     - vc14_runtime  # [win]
     - vs2015_runtime  # [win]
-  number: 3
+  number: 4
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   build:
     - {{ compiler('c') }}
+    - {{ stdlib("c") }}
     # extras for cross-compiling
     - python                              # [build_platform != target_platform]
     - cross-python_{{ target_platform }}  # [build_platform != target_platform]
@@ -43,7 +44,6 @@ requirements:
     - setuptools_scm
   run:
     - {{ pin_compatible('gsl') }}
-    - {{ pin_compatible('numpy') }}
     - python
 
 test:
