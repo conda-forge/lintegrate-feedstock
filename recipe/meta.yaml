@@ -10,7 +10,7 @@ source:
   sha256: bf1881e56d41b5a7e2998a2f4142781789f5c720dd1025c9da491776701cd220
 
 build:
-  skip: true  # [py<39]
+  skip: true  # [py<39 or python_impl=='pypy']
   error_overdepending: true
   error_overlinking: true
   ignore_run_exports:
