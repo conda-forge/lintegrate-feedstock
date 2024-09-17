@@ -19,6 +19,7 @@ build:
     - ucrt  # [win]
     - vc14_runtime  # [win]
     - vs2015_runtime  # [win]
+    - libgcc  # [linux]
   number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
