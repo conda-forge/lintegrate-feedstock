@@ -19,7 +19,8 @@ build:
     - ucrt  # [win]
     - vc14_runtime  # [win]
     - vs2015_runtime  # [win]
-  number: 0
+    - libgcc  # [linux]
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
