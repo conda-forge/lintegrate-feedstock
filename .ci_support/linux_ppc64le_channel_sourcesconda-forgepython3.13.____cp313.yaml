@@ -25,4 +25,7 @@ python:
 python_impl:
 - cpython
 target_platform:
-- linux-aarch64
+- linux-ppc64le
+zip_keys:
+- - python
+  - channel_sources
