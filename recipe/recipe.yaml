@@ -1,0 +1,84 @@
+schema_version: 1
+
+context:
+  version: "0.2.0"
+
+package:
+  name: lintegrate
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/l/lintegrate/lintegrate-${{ version }}.tar.gz
+  sha256: bf1881e56d41b5a7e2998a2f4142781789f5c720dd1025c9da491776701cd220
+
+build:
+  dynamic_linking:
+    overdepending_behavior: error
+  number: 3
+  script: ${{ PYTHON }} -m pip install . -vv
+  skip:
+    - python_impl != 'cpython'
+
+requirements:
+  build:
+    - ${{ compiler("c") }}
+    - ${{ stdlib("c") }}
+    # extras for cross-compiling
+    - if: build_platform != target_platform
+      then:
+        - cross-python_${{ target_platform }}
+        - cython
+        - numpy
+        - python
+  host:
+    - cython
+    - gsl
+    - numpy
+    - python
+    - pip
+    - setuptools
+    - setuptools_scm
+  run:
+    - python
+  ignore_run_exports:
+    by_name:
+      - if: win
+        then:
+          - ucrt
+          - vc14_runtime
+          - vs2015_runtime
+
+tests:
+  - files:
+      source:
+        - test
+    requirements:
+      run:
+        - pip
+        - pytest
+    script:
+      - python -m pip check
+      - python -m pip show lintegrate
+      - python -m pytest test -v -ra
+
+about:
+  summary: Python functions implementing numerical integration of functions in log-space.
+  description: |
+    lintegrate provides Python functions for numerical integration of functions
+    in log-space. This is useful for functions that have a very large dynamic
+    range, or intrinsically would include very large or small numbers, and
+    therefore it is more practical to work with the natural logarithm of the
+    function. In these cases it is useful to also stay within log-space when
+    integrating the function, which is what this package enables.
+
+    The functions provided by lintegrate are equivalent to, and based on,
+    several numerical integration routines provided within the GNU Scientific
+    Library (GSL).
+  homepage: http://github.com/mattpitkin/lintegrate
+  repository: https://github.com/mattpitkin/lintegrate.git
+  license: GPL-3.0-or-later
+  license_file: LICENSE
+
+extra:
+  recipe-maintainers:
+    - mattpitkin
