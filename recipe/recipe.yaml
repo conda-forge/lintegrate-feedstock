@@ -1,7 +1,7 @@
 schema_version: 1
 
 context:
-  version: "0.2.0"
+  version: "0.2.1"
 
 package:
   name: lintegrate
@@ -9,12 +9,12 @@ package:
 
 source:
   url: https://pypi.org/packages/source/l/lintegrate/lintegrate-${{ version }}.tar.gz
-  sha256: bf1881e56d41b5a7e2998a2f4142781789f5c720dd1025c9da491776701cd220
+  sha256: 8cea89e74f33211193636a48f83d1164bc595376794c89972d8554575e719208
 
 build:
   dynamic_linking:
     overdepending_behavior: error
-  number: 3
+  number: 0
   script: ${{ PYTHON }} -m pip install . -vv
   skip:
     - python_impl != 'cpython'
